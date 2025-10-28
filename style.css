@@ -1,0 +1,413 @@
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* IMPORTER UNE POLICE MODERNE */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap');
+
+/* ============================ */
+/* 1. STYLES DE BASE ET FULLSCREEN */
+/* ============================ */
+
+:root {
+    --color-primary: #5978b3; /* Or Vif */
+    --color-secondary: #0A192F; /* Bleu Nuit / Dark Navy */
+    --color-text-dark: #333333;
+    --color-text-light: #F8F8F8;
+    --color-background: #FFFFFF;
+    --font-family-main: 'Montserrat', sans-serif;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ⚠️ RÈGLES POUR LE PLEIN ÉCRAN ⚠️ */
+html, body {
+    height: 100%; 
+    width: 100%; 
+    overflow-x: hidden; /* Empêche le défilement horizontal */
+}
+
+body {
+    font-family: var(--font-family-main);
+    line-height: 1.6;
+    color: var(--color-text-dark);
+    background-color: var(--color-background);
+    scroll-behavior: smooth;
+}
+
+/* Titres */
+h1, h2, h3 {
+    margin-bottom: 0.5em;
+    font-weight: 700;
+    color: var(--color-secondary);
+}
+
+h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    border-bottom: 3px solid var(--color-primary);
+    display: inline-block;
+    padding-bottom: 0.2em;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Liens */
+a {
+    text-decoration: none;
+    color: var(--color-primary);
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #257696; 
+}
+
+/* Sections générales */
+section {
+    padding: 6rem 5%;
+    max-width: 1200px; /* Le contenu reste centré et lisible */
+    margin: 0 auto;
+}
+
+/* ============================ */
+/* 2. EN-TÊTE ET NAVIGATION     */
+/* ============================ */
+
+header {
+    background-color: var(--color-secondary);
+    color: var(--color-text-light);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+nav h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+nav ul li a {
+    color: var(--color-text-light);
+    font-weight: 600;
+    text-transform: uppercase;
+    padding-bottom: 5px;
+}
+
+nav ul li a:hover {
+    color: var(--color-primary);
+    border-bottom: 2px solid var(--color-primary);
+}
+
+/* ============================ */
+/* 3. SECTION ACCUEIL (HERO)    */
+/* ============================ */
+
+#accueil {
+    /* ⚠️ MODIFIÉ POUR PRENDRE TOUTE LA HAUTEUR VISIBLE ⚠️ */
+    height: 100vh; 
+    
+    background: url('images/chambre\ principal.jpg') center/cover no-repeat; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--color-text-light);
+    position: relative;
+    padding: 0;
+}
+
+#accueil::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(39, 111, 139, 0.5); 
+    z-index: 1;
+}
+
+#accueil h1, #accueil p, #accueil a {
+    z-index: 2;
+}
+
+#accueil h1 {
+    font-size: 4rem;
+    margin-bottom: 0.5rem;
+    color: var(--color-primary);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+#accueil p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    font-weight: 300;
+}
+
+/* Bouton CTA */
+#accueil a {
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+    padding: 0.8rem 2rem;
+    border-radius: 5px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+    transition: all 0.3s ease;
+}
+
+#accueil a:hover {
+    background-color: #FFD700;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.6);
+}
+
+/* ============================ */
+/* 4. SECTIONS À PROPOS & SERVICES */
+/* ============================ */
+
+#apropos p {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 3rem;
+}
+
+#apropos > div, #services > div {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.feature-block { 
+    padding: 2rem;
+    border: 1px solid rgba(212, 175, 55, 0.3); 
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: var(--color-background);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.feature-block:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 0 15px var(--color-primary); 
+}
+
+.feature-block h3 {
+    font-size: 1.25rem;
+    color: var(--color-secondary);
+    font-weight: 600;
+}
+
+/* Style des émojis dans les titres des blocs */
+.feature-block h3::first-letter {
+    display: block;
+    font-size: 3rem;
+    margin-bottom: 0.1em;
+    line-height: 1;
+    color: var(--color-primary);
+}
+
+
+/* ============================ */
+/* 5. GALERIE PHOTOS            */
+/* ============================ */
+
+#galerie {
+    background-color: #f7f7f7;
+}
+
+#galerie > div {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+#galerie figure {
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    background-color: var(--color-background);
+}
+
+#galerie img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+#galerie figure:hover img {
+    transform: scale(1.05);
+}
+
+#galerie figcaption {
+    padding: 1rem;
+    text-align: center;
+    font-weight: 600;
+    color: var(--color-secondary);
+}
+
+/* ============================ */
+/* 6. CONTACT                   */
+/* ============================ */
+
+#contact {
+    background-color: var(--color-secondary);
+    color: var(--color-text-light);
+}
+
+#contact h2 {
+    color: var(--color-primary);
+    border-bottom-color: var(--color-text-light);
+}
+
+#contact > div {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+#contact h3 {
+    color: var(--color-primary);
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+#contact a, #contact p, #contact ul {
+    color: var(--color-text-light);
+    font-weight: 300;
+    list-style: none;
+    padding: 0;
+}
+
+#contact a:hover {
+    color: var(--color-primary);
+}
+
+/* Formulaire de Contact */
+#contact form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#contact button[type="submit"] {
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+    padding: 1rem;
+    border: none;
+    border-radius: 5px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#contact button[type="submit"]:hover {
+    background-color: #FFD700;
+    transform: translateY(-2px);
+}
+
+/* Style du message de succès (pour l'exemple) */
+#contact form p {
+    text-align: center;
+    color: #4CAF50; 
+    font-weight: 600;
+    margin-top: 1rem;
+}
+
+/* ============================ */
+/* 7. PIED DE PAGE              */
+/* ============================ */
+
+footer {
+    background-color: #000000;
+    color: #AAAAAA;
+    text-align: center;
+    padding: 1.5rem 0;
+    font-size: 0.9rem;
+}
+
+/* ============================ */
+/* 8. RESPONSIVE DESIGN         */
+/* ============================ */
+
+@media (max-width: 768px) {
+    
+    h2 {
+        font-size: 2rem;
+        text-align: center;
+        width: 100%;
+        border-bottom: none;
+        padding-bottom: 0;
+        transform: none;
+        left: 0;
+    }
+
+    /* Navigation */
+    nav {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    nav h1 {
+        margin-bottom: 1rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+    }
+
+    /* Accueil */
+    #accueil {
+        height: 70vh; /* Réduit un peu la hauteur sur mobile pour voir le contenu suivant plus facilement */
+    }
+    
+    #accueil h1 {
+        font-size: 2.5rem;
+    }
+
+    #accueil p {
+        font-size: 1.1rem;
+    }
+
+    /* Sections */
+    section {
+        padding: 4rem 5%;
+    }
+}
